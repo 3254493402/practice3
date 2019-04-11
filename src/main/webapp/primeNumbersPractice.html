@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<title>prime numbers 练习</title>
+	</head>
+	<body>
+		<fieldset>
+			<legend>列出两整数之间的所有素数</legend>
+			<table>
+				<tbody>
+					<tr>
+						<th>
+							<label for="minimum">minimum</label>
+						</th>
+						<td>
+							<input id="minimum" name="minimum" required="" type="number">
+						</td>
+						<th>
+							<label for="maximum">maximum</label>
+						</th>
+						<td>
+							<input id="maximum" name="maximum" required="" type="number">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div style="padding:5px">
+				<input id="songchu" type="submit" value="送出">
+				<input type="reset" value="清空">
+			</div>
+			<textarea style="width:640px;height:480px" cols="1" readonly="" rows="1"></textarea>
+		</fieldset>
+		<script>
+			$("#songchu").click(function () {
+				var minimum = $("#minimum").val();
+				var maximum = $("#maximum").val();
+
+				$.ajax({
+					type: "get",
+					url: "ajaxJson",
+					data: {"minimum": minimum, "maximum": maximum},
+					contentType:"application/json;charset=UTF-8", 
+					success: function (data) {
+						$("textarea").html(data);
+					}
+				});
+			});
+
+
+
+
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+	<head>
+		<title>九九乘法表</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</head>
+	<body id="abc">
+
+		<script>
+			window.onload = function () {
+				$.post("jsssss", {}, function (data) {
+					var object = JSON.parse(data);
+					var table = document.createElement("table");
+					table.setAttribute('border', '1');
+					$("#abc").append(table);
+					for (var i = 0; i <= 17; i++) {
+						
+						if (i <= 8) {
+							var trOne = document.createElement("tr");
+							var tdOne = document.createElement("td");
+							var tdTwo = document.createElement("td");
+							var tdThr = document.createElement("td");
+							var tdFou = document.createElement("td");
+							$(tdOne).html(object[i]["name"]);
+							$(tdTwo).html(object[i + 9]["name"]);
+							$(tdThr).html(object[i + 18]["name"]);
+							$(tdFou).html(object[i + 27]["name"]);
+							$(trOne).append(tdOne).append(tdTwo).append(tdThr).append(tdFou);
+							$(table).append(trOne);
+						} else if (i > 8) {
+							var trTwo = document.createElement("tr");
+							var tdFiv = document.createElement("td");
+							var tdSix = document.createElement("td");
+							var tdSev = document.createElement("td");
+							var tdEig = document.createElement("td");
+							$(tdFiv).html(object[i + 27]["name"]);
+							$(tdSix).html(object[i + 36]["name"]);
+							$(tdSev).html(object[i + 45]["name"]);
+							$(tdEig).html(object[i + 54]["name"]);
+							$(trTwo).append(tdFiv).append(tdSix).append(tdSev).append(tdEig);
+							$(table).append(trTwo);
+						}
+					}
+					
+				});
+			};
+		</script>
+
+	</body>
+</html>

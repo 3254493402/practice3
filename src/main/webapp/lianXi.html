@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+	<head>
+		<title>练习</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</head>
+	<body id="lx">
+		<div id="test"></div>
+		<script>
+			window.onload = function () {
+				$.post("lian", {}, function (data) {
+//					alert(data);
+					$("#test").html(lian);
+//					var table = document.documentElement("TABLE");
+//					table.setAttribute('border', '1');
+//					$("lx").append(table);
+
+//					var arrAy = JSON.parse(data);
+//					for (var i = 0; i < arrAy.length; i++) {
+//						var object = JSON.parse(arrAy);
+//						for (var j = 0; j < object.length; j++) {
+//							var tr = document.createElement("tr");
+//							$(table).append(tr);
+//							var td = document.createElement("td");
+//							$(td).html(object[j]["orderNumber"]);
+//							$(tr).append(td);
+//							var tdOne = document.createElement("td");
+//							$(tdOne).html(object[j]["orderDate"]);
+//							$(tr).append(tdOne);
+//						}
+//					}
+
+				})
+			}
+		</script>
+
+	</body>
+</html>
